@@ -13,16 +13,21 @@
     </div>
     <div>
       <p>Origin</p>
-      <v-select :options="carTypes"></v-select>
+      <input v-model="formData.origin"  />
     </div>
     <div>
       <p>Destination</p>
-      <v-select :options="carTypes"></v-select>
+      <input v-model="formData.destination" />
+    </div>
+    <div>
+      <button @click="submit()">Submit</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -42,6 +47,21 @@ export default {
         honda: ["honda1", "honda2", "honda3", "honda4", "honda5"],
       },
     };
+  },
+  methods: {
+    submit() {
+      let url = 'https://litremuch1-dot-augment-plus.ey.r.appspot.com/';
+      console.log(url);
+      console.log(this.formData);
+      axios({
+        url,
+        method: "GET",
+        params: this.formData
+      }).then((res) => {
+        console.log(res.data);
+      });
+      
+    },
   },
   watch: {
     "formData.carType"(newValue) {
