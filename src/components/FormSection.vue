@@ -6,7 +6,7 @@
     <p>
       Distance: {{ distance }} <br />
       Duration:{{ duration }}<br />
-      Litres{{ litres }}
+      Litres: {{ litres }}
     </p>
     <div>
       <p>Car Type</p>
@@ -67,10 +67,10 @@ export default {
         params: this.formData,
       });
 
-      console.log(res.data.rows[0]);
-      this.distance = res.data.rows[0].elements[0].distance.text;
-      this.duration = res.data.rows[0].elements[0].duration.text;
-      this.litres = "Yet to be determined"
+      console.log(res.data);
+      this.distance = res.data.distance;
+      this.duration = res.data.duration;
+      this.litres = res.data.litres;
     },
   },
   watch: {
