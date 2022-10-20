@@ -3,6 +3,11 @@
     <pre>
         {{ formData }}
     </pre>
+    <p>
+      Distance: {{ distance }} <br />
+      Duration:{{ duration }}<br />
+      Litres{{ litres }}
+    </p>
     <div>
       <p>Car Type</p>
       <v-select v-model="formData.carType" :options="carTypes"></v-select>
@@ -13,7 +18,7 @@
     </div>
     <div>
       <p>Origin</p>
-      <input v-model="formData.origin"  />
+      <input v-model="formData.origin" />
     </div>
     <div>
       <p>Destination</p>
@@ -31,6 +36,9 @@ import axios from "axios";
 export default {
   data() {
     return {
+      distance: null,
+      duration: null,
+      litres: null,
       formData: {
         carType: null,
         carEngine: null,
@@ -49,18 +57,20 @@ export default {
     };
   },
   methods: {
-    submit() {
+    async submit() {
       let url = 'https://litremuch1-dot-augment-plus.ey.r.appspot.com/';
       console.log(url);
       console.log(this.formData);
-      axios({
+      let res = await axios({
         url,
         method: "GET",
-        params: this.formData
-      }).then((res) => {
-        console.log(res.data);
+        params: this.formData,
       });
-      
+
+      console.log(res.data.rows[0]);
+      this.distance = res.data.rows[0].elements[0].distance.text;
+      this.duration = res.data.rows[0].elements[0].duration.text;
+      this.litres = "Yet to be determined"
     },
   },
   watch: {
