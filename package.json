@@ -7,7 +7,6 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0"
   },
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +22,10 @@
     "url": "https://github.com/Augment-Plus/litremuch-frontend1/issues"
   },
   "homepage": "https://github.com/Augment-Plus/litremuch-frontend1#readme",
-  "readme": "ERROR: No README data found!",
-  "_id": "litremuch-frontend1@1.0.0"
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
 }
