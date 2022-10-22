@@ -33,9 +33,6 @@
         label="Submit"
       />
     </div>
-    <pre>
-        {{ formData }}
-    </pre>
   </div>
 </template>
 
