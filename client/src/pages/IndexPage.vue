@@ -1,15 +1,10 @@
 <template>
-  <q-page class="flex flex-center">
-    <FormSection />
-  </q-page>
+  <q-page> We build our html here </q-page>
 </template>
 
 <script>
-import FormSection from "../components/FormSection.vue";
 export default {
   name: "IndexPage",
-  components: {
-    FormSection,
-  },
+  components: {},
 };
 </script>
